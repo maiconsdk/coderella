@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const client  = new Discord.Client();
 const botConfig  = require('./bot/config.json')
-const commands = require('./bot/reader')(botConfig.prefix)
+const commands = require('./bot/reader')()
 
 /**
  * printa todos os commandos e o seus

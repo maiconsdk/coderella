@@ -1,6 +1,7 @@
 const fs = require('fs')
+const botConfig  = require('./config.json')
 
-module.exports = (prefix, dirName = 'bot/commands/') => {
+module.exports = (dirName = 'bot/commands/') => {
 
     const commands = {}
 
@@ -21,7 +22,7 @@ module.exports = (prefix, dirName = 'bot/commands/') => {
          * Cria um array com todos os comandos
          * e o seus respectivos scripts.
          */
-        commands[prefix + script.split('.')[0]] = require(`../${dirName}${script}`)
+        commands[botConfig.prefix + script.split('.')[0]] = require(`../${dirName}${script}`)
     })
 
     return commands
