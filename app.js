@@ -1,13 +1,16 @@
 const Discord = require('discord.js')
 const client  = new Discord.Client();
-const botConfig  = require('./bot/config.json')
+const config  = require('./bot/config.json')
 const commands = require('./bot/reader')()
 
-/**
- * printa todos os commandos e o seus
- * scripts correspondentes.
- */
-console.log(commands)
+if(config.debug) {
+    /**
+     * printa todos os commandos e o seus
+     * scripts correspondentes.
+     */
+    console.log('Comandos registrados')
+    console.log(commands)
+}
 
 /**
  * Evento que é executado quando o
@@ -22,14 +25,14 @@ client.on('ready', () => {
  * envia uma mensagem.
  */
 client.on('message', (message) => {
-    if(!message.author.bot) {
+    if(!message.author.bot && message.guild) {
 
         /**
          * Transformando a string informada pelo
          * usuário separando cada palavra em um 
          * valor de uma array.
          */
-        const args = message.content.trim().slice(botConfig.prefix.length).split(/ +/g)
+        const args = message.content.trim().slice(config.prefix.length).split(/ +/g)
 
         /**
          * Removendo e retornando o primeiro elemento
@@ -42,8 +45,9 @@ client.on('message', (message) => {
          * Se o comando existir, ele
          * será executado.
          */
-        if(commands[botConfig.prefix + command]) {
-            commands[botConfig.prefix + command](client, message, args)   
+        
+        if(commands[config.prefix + command]) {
+            commands[config.prefix + command](client, message, args)   
         }
     }
 })
@@ -52,4 +56,4 @@ client.on('message', (message) => {
  * Inicialização de uma
  * instância de login para o bot.
  */
-client.login(botConfig.token)
+client.login(config.token)

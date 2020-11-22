@@ -1,4 +1,5 @@
 {
     "prefix":"your bot prefix",
-    "token": "your bot token"
+    "token": "your bot token",
+    "debug": false
 }

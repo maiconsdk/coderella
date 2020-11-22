@@ -13,7 +13,7 @@ module.exports = (dirName = 'bot/commands/') => {
 
     /**
      * Percorre o array de scripts,
-     * para poder definir o require
+     * para poder definir o require"
      * de cada um.
      */
     scripts.forEach((script) => {
