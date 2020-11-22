@@ -1,0 +1,23 @@
+{
+  "name": "coderella",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maiconsdk/coderella.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maiconsdk/coderella/issues"
+  },
+  "homepage": "https://github.com/maiconsdk/coderella#readme",
+  "dependencies": {
+    "discord.js": "^12.5.0"
+  }
+}
