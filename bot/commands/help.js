@@ -30,6 +30,6 @@ module.exports = async (client, message, args) => {
     await message.author.send(content)
 
     if(message.guild) {
-        message.channel.send(`**${author}**, os comandos já foram enviados ✉ para sua DM!`)
+        message.channel.send(`**${author}**, os comandos já foram enviados para sua DM!`)
     }
 }
