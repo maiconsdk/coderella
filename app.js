@@ -1,7 +1,8 @@
-const Discord = require('discord.js')
-const client  = new Discord.Client();
-const config  = require('./bot/config.json')
-const commands = require('./bot/reader')()
+const Discord       = require('discord.js')
+const client        = new Discord.Client();
+const config        = require('./bot/config.json')
+const commands      = require('./bot/reader')()
+const unknowCommand = require('./bot/unknowCommand')
 
 if(config.debug) {
     /**
@@ -25,12 +26,13 @@ client.on('ready', () => {
  * envia uma mensagem.
  */
 client.on('message', (message) => {
-    if(!message.author.bot && message.guild) {
+    if(!message.author.bot) {
 
         /**
          * Transformando a string informada pelo
          * usuário separando cada palavra em um 
-         * valor de uma array.
+         * valor de uma array, removendo o prefixo
+         * da string.
          */
         const args = message.content.trim().slice(config.prefix.length).split(/ +/g)
 
@@ -45,9 +47,20 @@ client.on('message', (message) => {
          * Se o comando existir, ele
          * será executado.
          */
-        
         if(commands[config.prefix + command]) {
             commands[config.prefix + command](client, message, args)   
+        
+        } else {
+            let fullArgs = message.content.split(' ')
+
+            /**
+             * Verifica se o primeiro elemento
+             * do array é o comando errado, e
+             * encaminha para a função corresponde.
+             */
+            if(fullArgs[0] == (config.prefix + command)) {
+                unknowCommand(client, message, fullArgs)
+            }
         }
     }
 })
