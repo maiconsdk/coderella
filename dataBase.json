@@ -1,0 +1,43 @@
+{
+    "rocket": {
+        "image": "https://www.eomoba.com/pc/gw/20191205093943/img/yxtx/Rocket_69dd592.png",
+        "name": "Rocket",
+        "color": "#EE853E",
+        "info": [
+            
+        ],
+        "skills": [
+            {
+                "image": "https://www.eomoba.com/pc/gw/20191205093943/img/yxjn/00012/0_d5426fd.png",
+                "name": "Orelhonas",
+                "type": "Passiva",
+                "description": "Rocket mostrará unidades por perto periodicamente (incluindo unidades invisíveis). Se Rocket não tiver nenhum Herói inimigo dentro de seu alcance físico, ele ganhará Bônus de Dano Crítico."
+            },
+            {
+                "image": "https://www.eomoba.com/pc/gw/20191205093943/img/yxjn/00012/c1_206cd5c.png",
+                "name": "Pulando Por Aí",
+                "type": "Skill",
+                "description": "Rocket levanta Rocket para o ar, ficando invisível por um curto período de tempo, caindo depois de 1s e desacelerando inimigos da área e causando Dano Físico. Se esta habilidade for ativada novamente em 1s, irá cair na direção selecionada."
+            }
+        ]
+    },
+    "hadenna": {
+        "image": "https://www.eomoba.com/pc/gw/20191205093943/img/yxtx/Hadenna_efe79e9.png",
+        "name": "Hadenna",
+        "color": "#AE2AE6",
+        "skills": [
+            {
+                "image": "https://www.eomoba.com/pc/gw/20191205093943/img/yxjn/00022/0_2c52a8c.png",
+                "name": "Golpe da Foice",
+                "type": "Passiva",
+                "description": "O espírito de Hadenna brande uma foice gigante, com 20% a mais de alcance de ataque do que outros Heróis Melee. Seu 3º ataque aplicará o efeito 'Choque da Alma' em inimigos."
+            },
+            {
+                "image": "https://www.eomoba.com/pc/gw/20191205093943/img/yxjn/00022/c1_1912012.png",
+                "name": "Corte da Alma",
+                "type": "Skill",
+                "description": "Hadenna e seu espírito investem na direção selecionada, prendendo inimigos em seu caminho. Ao chegar em seu destino, ambos causam Dano Físico e jogam inimigos para trás, aplicando o efeito 'Choque da Alma' em quem levar o golpe."
+            }
+        ]
+    }
+}
