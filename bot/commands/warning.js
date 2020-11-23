@@ -1,7 +1,7 @@
 const config = require('../config.json')
 
 module.exports = async (client, message, args) => {
-    const channel = await message.guild.channels.cache.find(channel => channel.id == config.warning_channel)
+    const channel = await message.guild.channels.cache.find(channel => channel.id == config.channels['warning'])
     let warningMessage = message.content.split(' ')
 
     if(channel) {
@@ -9,6 +9,6 @@ module.exports = async (client, message, args) => {
         warningMessage = warningMessage.join(' ')
 
         await channel.send(`@everyone ${warningMessage}`)
-        message.channel.send(`${message.author.username} seu aviso foi postado em ${channel} com sucesso!`)
+        await message.channel.send(`**${message.author.username}**, seu aviso foi postado em ${channel} com sucesso!`)
     }
 }

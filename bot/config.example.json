@@ -1,5 +1,25 @@
 {
     "prefix":"your bot prefix",
     "token": "your bot token",
-    "debug": false
+    "debug": false,
+
+    "channels": {
+        "general": "",
+        "warning": ""
+    },
+
+    "permissions": {
+        "!clear": [
+            {
+                "type": "",
+                "value": ""
+            }
+        ],
+        "!warning": [
+            {
+                "type": "",
+                "value": ""
+            }
+        ]
+    }
 }
