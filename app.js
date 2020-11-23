@@ -3,6 +3,7 @@ const client        = new Discord.Client();
 const config        = require('./bot/config.json')
 const commands      = require('./bot/reader')()
 const unknowCommand = require('./bot/unknowCommand')
+const hasPermission = require('./bot/hasPermission')
 
 if(config.debug) {
     /**
@@ -48,7 +49,17 @@ client.on('message', (message) => {
          * será executado.
          */
         if(commands[config.prefix + command]) {
-            commands[config.prefix + command](client, message, args)   
+
+            /**
+             * Verifica se o usuário tem
+             * permissão para executar o comando.
+             */
+            if(hasPermission(message.member, config.prefix + command)) {
+                commands[config.prefix + command](client, message, args)
+            
+            } else {
+                message.channel.send(`**${message.author.username}**, você não tem permissão para executar esse comando.`)
+            }
         
         } else {
             let fullArgs = message.content.split(' ')

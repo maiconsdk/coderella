@@ -1,5 +1,6 @@
-const config = require('../config.json')
-const commands = require('../reader')()
+const config        = require('../config.json')
+const commands      = require('../reader')()
+const hasPermission = require('../hasPermission')
 
 const description = {
     '!help': 'Retorna todos os comandos possíveis para o seu cargo atual.',
@@ -16,7 +17,9 @@ module.exports = async (client, message, args) => {
      * Recupera todas as keys do array.
      */
     Object.keys(commands).forEach((command) => {
-        content += `\n ${command}: ${description[command] ? description[command] : 'Sem descrição'}`
+        if(hasPermission(message.member, command)) {
+            content += `\n ${command}: ${description[command] ? description[command] : 'Sem descrição'}`
+        }
     })
 
     /**

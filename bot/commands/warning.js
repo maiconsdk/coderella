@@ -9,6 +9,6 @@ module.exports = async (client, message, args) => {
         warningMessage = warningMessage.join(' ')
 
         await channel.send(`@everyone ${warningMessage}`)
-        message.reply(`Seu aviso foi postado em ${channel} com sucesso!`)
+        message.channel.send(`${message.author.username} seu aviso foi postado em ${channel} com sucesso!`)
     }
 }
