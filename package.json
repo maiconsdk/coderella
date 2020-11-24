@@ -19,6 +19,7 @@
   "homepage": "https://github.com/maiconsdk/coderella#readme",
   "dependencies": {
     "discord.js": "^12.5.0",
+    "mongoose": "^5.10.15",
     "nodemon": "^2.0.6"
   }
 }

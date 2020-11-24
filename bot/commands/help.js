@@ -4,6 +4,7 @@ const hasPermission = require('../hasPermission')
 
 const description = {
     '!help': 'Retorna todos os comandos possíveis para o seu cargo atual.',
+    '!consult': 'Retorna informações do Hero informado.',
     '!warning': 'Permite criar um aviso no canal de avisos.',
     '!ping': 'Retorna o ping atual da aplicação.',
     '!clear': 'Limpa todas as mensagens do canal.'
