@@ -1,12 +1,17 @@
+const dotenv        = require('dotenv')
 const mongoose      = require('mongoose')
 const Hero          = require('./models/Hero')
 const Skill         = require('./models/Skill')
 const Discord       = require('discord.js')
-const client        = new Discord.Client();
+const client        = new Discord.Client()
 const config        = require('./bot/config.json')
 const commands      = require('./bot/reader')()
 const unknowCommand = require('./bot/unknowCommand')
 const hasPermission = require('./bot/hasPermission')
+
+if(process.env.APP_STATUS != 'production') {
+    dotenv.config()
+}
 
 /**
  * Conectando no banco
@@ -128,4 +133,4 @@ client.on('message', (message) => {
  * Inicialização de uma
  * instância de login para o bot.
  */
-client.login(config.token)
+client.login(process.env.BOT_TOKEN)
