@@ -1,5 +1,6 @@
 const Discord  = require('discord.js')
 const Embed    = new Discord.MessageEmbed()
+const Message  = require('./messages/SkillNotFound')
 
 module.exports = async (hero, term, message) => {
     const Hero = hero
@@ -29,11 +30,10 @@ module.exports = async (hero, term, message) => {
             })
 
         } else {
-            message.channel.send(`**${message.author.username}**, parece que você digitou algo errado 😰! A sintaxe correta do comando é:\n\`!build [hero] opcional[params]\`\n\n para mais dúvidas, confira a documentação digitando \`!help\``)
+            Message(message, Embed)
         }
 
     }).catch((error) => {
-        message.channel.send(`**${message.author.username}**, parece que houve um erro interno 😰! Vamos verificar esse problema assim que possível. Se necessário, notifique um **administrador**.`)
-        console.log('Houve um erro ao buscar o hero: ' + error)
+        Message(message, Embed, error)
     })
 }

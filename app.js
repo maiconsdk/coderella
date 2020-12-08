@@ -9,6 +9,9 @@ const commands      = require('./bot/reader')()
 const unknowCommand = require('./bot/unknowCommand')
 const hasPermission = require('./bot/hasPermission')
 
+/**
+ * Identificando o ambiente
+ */
 if(process.env.APP_STATUS != 'production') {
     dotenv.config()
 }
